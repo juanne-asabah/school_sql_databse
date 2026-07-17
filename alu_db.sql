@@ -42,7 +42,7 @@ CREATE TABLE Courses (
 );
 
 ---member five; David Bitwayiki---
-CREATE TABLE Extra_Curricular_Activities (
+CREATE TABLE Extra_Curicular_Activities (
     activity_id INT AUTO_INCREMENT,
     activity_name VARCHAR(100) NOT NULL,
     category VARCHAR(50) NOT NULL,
