@@ -1,6 +1,7 @@
 CREATE DATABASE IF NOT EXISTS alu_db;
 USE alu_db;
 
+---member one; Craig David---
 CREATE TABLE Students (
     student_id INT AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
@@ -10,6 +11,7 @@ CREATE TABLE Students (
     PRIMARY KEY (student_id)
 );
 
+---member two; Juanne Asabah---
 CREATE TABLE Classroom (
     classroom_id INT AUTO_INCREMENT,
     room_number VARCHAR(50) NOT NULL,
@@ -18,6 +20,7 @@ CREATE TABLE Classroom (
     PRIMARY KEY (classroom_id)
 );
 
+---member three; David Boyo---
 CREATE TABLE Faculty (
     faculty_id INT AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
@@ -26,6 +29,7 @@ CREATE TABLE Faculty (
     PRIMARY KEY (faculty_id)
 );
 
+---member four; Sarah Wendo---
 CREATE TABLE Courses (
     course_id INT AUTO_INCREMENT,
     course_name VARCHAR(100) NOT NULL,
@@ -37,6 +41,7 @@ CREATE TABLE Courses (
     FOREIGN KEY (classroom_id) REFERENCES Classroom(classroom_id) ON DELETE SET NULL
 );
 
+---member five; David Bitwayiki---
 CREATE TABLE Extra_Curricular_Activities (
     activity_id INT AUTO_INCREMENT,
     activity_name VARCHAR(100) NOT NULL,
@@ -46,6 +51,7 @@ CREATE TABLE Extra_Curricular_Activities (
     FOREIGN KEY (faculty_advisor_id) REFERENCES Faculty(faculty_id) ON DELETE SET NULL
 );
 
+---David Bitwayiki---
 CREATE TABLE Student_Courses (
     student_id INT,
     course_id INT,
@@ -54,6 +60,7 @@ CREATE TABLE Student_Courses (
     FOREIGN KEY (course_id) REFERENCES Courses(course_id) ON DELETE CASCADE
 );
 
+---creating join tables---
 CREATE TABLE Student_Activities (
     student_id INT,
     activity_id INT,
@@ -65,6 +72,7 @@ CREATE TABLE Student_Activities (
 ALTER TABLE Students
 ADD FOREIGN KEY (classroom_id) REFERENCES Classroom(classroom_id) ON DELETE SET NULL;
 
+---Inserting records into the fileds in each table---
 INSERT INTO Classroom (room_number, building, capacity) VALUES
 ('Room 101', 'A-Block', 30),
 ('Room 102', 'A-Block', 25),
@@ -114,32 +122,35 @@ INSERT INTO Student_Activities (student_id, activity_id) VALUES
 (4, 1), (4, 5),
 (5, 3);
 
+---Updating, Deleting, Selecting records in Students table---
 UPDATE Students SET classroom_id = 2 WHERE student_id = 1;
 
 DELETE FROM Students WHERE student_id = 5;
 
 SELECT * FROM Students WHERE enrollment_date > '2026-01-31';
 
+---Updating, Deleting, Selecting records in Classroom table---
 UPDATE Classroom SET capacity = 35 WHERE classroom_id = 1;
 
 DELETE FROM Classroom WHERE classroom_id = 5;
 
 SELECT * FROM Classroom WHERE building = 'B-Block';
 
-
+---Updating, Deleting, Selecting records in Faculty table---
 UPDATE Faculty SET department = 'Data Science' WHERE faculty_id = 1;
 
 DELETE FROM Faculty WHERE faculty_id = 5;
 
 SELECT * FROM Faculty WHERE department = 'Mathematics';
 
-
+---Updating, Deleting, Selecting records in Courses table---
 UPDATE Courses SET credits = 5 WHERE course_id = 1;
 
 DELETE FROM Courses WHERE course_id = 5;
 
 SELECT * FROM Courses WHERE credits >= 4;
 
+---Updating, Deleting, Selecting records in Extra_Curricular_Activities table---
 UPDATE Extra_Curricular_Activities SET faculty_advisor_id = 3 WHERE activity_id = 4;
 
 DELETE FROM Extra_Curricular_Activities WHERE activity_id = 3;
