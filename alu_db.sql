@@ -52,11 +52,11 @@ CREATE TABLE Extra_Curricular_Activities (
 );
 
 ---David Bitwayiki---
-CREATE TABLE Student_Courses (
-    student_id INT,
+CREATE TABLE Students_Courses (
+    students_id INT,
     course_id INT,
-    PRIMARY KEY (student_id, course_id),
-    FOREIGN KEY (student_id) REFERENCES Students(student_id) ON DELETE CASCADE,
+    PRIMARY KEY (students_id, course_id),
+    FOREIGN KEY (students_id) REFERENCES Students(students_id) ON DELETE CASCADE,
     FOREIGN KEY (course_id) REFERENCES Courses(course_id) ON DELETE CASCADE
 );
 
